@@ -3,26 +3,23 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Document</title>
+    <title>文件传</title>
 </head>
 <body>
 <p>
-    <input type="text" name="a"/>
-</p>
-<p>
-    <input type="file" name="img" accept="image/*" multiple/>
+    <label>
+        <input type="file" name="img" accept="image/*" multiple/>
+    </label>
 </p>
 <p>
     <button>提交</button>
 </p>
-<img src="" alt=""/>
+<img src="" alt="" style="width: 55vw;height: 40vw;display: none"/>
 <script>
     function upload () {
-        const inpA = document.querySelector ( "[name=a]" );
         const inpFile = document.querySelector ( "[name=img]" );
         const img = document.querySelector ( "img" );
         const formData = new FormData (); //帮助你构建form-data格式的消息体
-        formData.append ( "a" , inpA.value );
         for ( const file of inpFile.files ) {
             formData.append ( "img" , file , file.name );
         }
@@ -39,6 +36,7 @@
                     alert ( resp.msg );
                 } else {
                     img.src = resp.data;
+                    img.style.display = "block";
                 }
             } );
     }

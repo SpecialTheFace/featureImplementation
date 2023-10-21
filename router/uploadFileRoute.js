@@ -1,7 +1,6 @@
 const express = require ( 'express' );
 const router = express.Router ()
 const multer = require ( "multer" );
-// const fileUploadService = require( '../serviceLayer/fileUploadService');
 const path = require ( "path" );
 
 // 磁盘存储引擎使您可以完全控制将文件存储到磁盘。
